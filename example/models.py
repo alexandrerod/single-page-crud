@@ -15,6 +15,8 @@ class OrdemDeServico(models.Model):
     def __str__(self):
         return f'{self.nome} - {self.tag}'
 
+    
+
 
     class Meta:
         verbose_name = 'Ordem de serviço'
