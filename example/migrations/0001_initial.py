@@ -19,7 +19,8 @@ class Migration(migrations.Migration):
                 ('tag', models.CharField(max_length=20)),
                 ('data_incial', models.DateField(auto_now=True, verbose_name='Data de Iníco')),
                 ('data_final', models.DateField(auto_now=True, verbose_name='Data Final')),
-                ('descricao', models.TextField(help_text='Descreva o serviço à ser realizado', verbose_name='Descrição do Serviço')),
+                ('descricao', models.TextField(help_text='Descreva o serviço à ser realizado',
+                                               verbose_name='Descrição do Serviço')),
             ],
         ),
     ]
