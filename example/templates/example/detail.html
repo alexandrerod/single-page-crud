@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+DETAIL PAGE
+</body>
+</html>
+
+
+
+
+<ul>
+{% for equipamento in nivel_planta %}
+    <li>{{ equipamento.tag }}
+    <ul>
+        {%for equipamento_sistema in nivel_sistema %}
+          <li>{{ equipamento_sistema.tag }}
+          <ul>
+              {% for equipamento_equipamento in equipamento_as %}
+              <li>{{equipamento_equipamento.tag}}
+                  <ul>
+                      {%for equipamento_peca in peca_as %}
+                      <li>{{equipamento_peca.tag}}
+                      </li>
+                      {%endfor%}
+                  </ul>
+
+              </li>
+              {%endfor%}
+          </ul>
+
+
+          </li>
+        {% endfor %}
+    </ul>
+    </li>
+{% endfor %}
+</ul>
+
+------------
+<!--{% regroup nivel_planta by pai as nivel_planta %}-->
+
+{% regroup geral by nivel as arvore %}
+
+<ul>
+    {% for equipamento in arvore%}
+    <li>{{equipamento.grouper}}
+        <ul>
+            {%for sistema in arvore %}
+            <li>
+                {{sistema.tag}}
+            </li>
+            {%endfor%}
+        </ul>
+
+    </li>
+    {%endfor%}
+</ul>
+
+
+
+
+
+<!--{% load crispy_forms_tags %}-->
+
+<!--<form method="post">-->
+<!--    {% csrf_token %}-->
+<!--    <div class="form-row">-->
+<!--        <div class="form-group col-md-6 mb-0">-->
+<!--            {{ form.tag|as_crispy_field }}-->
+<!--        </div>-->
+<!--        <div class="form-group col-md-6 mb-0">-->
+<!--            {{ form.nome|as_crispy_field }}-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    {{ form.nivel|as_crispy_field }}-->
+<!--    {{ form.criticidade|as_crispy_field }}-->
+<!--    <div class="form-row">-->
+<!--        <div class="form-group col-md-6 mb-0">-->
+<!--            {{ form.requisitos|as_crispy_field }}-->
+<!--        </div>-->
+<!--        <div class="form-group col-md-4 mb-0">-->
+<!--            {{ form.descricao|as_crispy_field }}-->
+<!--        </div>-->
+<!--        <div class="form-group col-md-2 mb-0">-->
+<!--            {{ form.fabricante|as_crispy_field }}-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="form-group col-md-2 mb-0">-->
+<!--        {{ form.modelo|as_crispy_field }}-->
+<!--    </div>-->
+<!--    <div class="form-group col-md-2 mb-0">-->
+<!--        {{ form.pai|as_crispy_field }}-->
+<!--    </div>-->
+<!--    <div class="form-group col-md-4 mb-0">-->
+<!--        {{ form.localizacao|as_crispy_field }}-->
+<!--    </div>-->
+<!--    <div class="form-group col-md-4 mb-0">-->
+<!--        {{ form.link_historico|as_crispy_field }}-->
+<!--    </div>-->
+<!--    <div class="form-group col-md-4 mb-0">-->
+<!--        {{ form.link_pm|as_crispy_field }}-->
+<!--    </div>-->
+<!--    <div class="form-group col-md-4 mb-0">-->
+<!--        {{ form.link_foto|as_crispy_field }}-->
+<!--    </div>-->
+
+<!--    <div class="form-group col-md-4 mb-">-->
+<!--    <button type="submit" class="btn btn-primary">Sign in</button>-->
+<!--    </div>-->
+
+<!--</form>-->

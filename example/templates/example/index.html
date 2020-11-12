@@ -1,71 +1,50 @@
-{% load static %}
-
-<!doctype html>
-<html lang="en">
+{%load static%}
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'fa/css/all.min.css' %}">
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <title>CRUD EXAMPLE</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-
-    <title>CRUD</title>
 </head>
 <body>
 
 <div class="container">
+  <h2>Ordens de Serviço</h2>
+  <ul class="nav nav-tabs">
+    <li class="active"><a class="js-list" data-toggle="tab" href="#list">Ordens de Serviço</a></li>
 
-    <div class="text-center">
-        <button class="btn btn-primary"> Criar Ordem</button>
+    <li><a data-toggle="tab" class="js-create-update"
+           data-url="{% url 'example:create' %}"
+
+           href="#create-update">Criar/Editar</a></li>
+
+    <li><a data-toggle="tab" href="#detail">Ver</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="list" class="tab-pane fade in active">
+      <h3>Equipamentos</h3>
+      {% include 'example/list.html' %}
     </div>
 
-    <div class="table-responsive">
-        <table class="table table-condensed table-bordered table-hover">
+    <div id="create-update" class="tab-pane fade">
+      <h3>Criar/Editar</h3>
+        {% include 'example/create.html' %}
 
-            <thead class="table-dark text-center">
-            <tr>
-                <td>Nome</td>
-                <td>TAG</td>
-                <td>Data Inicial</td>
-                <td>Data Final</td>
-                <td>Descrição</td>
-                <td></td>
-            </tr>
-            </thead>
-            <tbody class="text-center">
-            {% for ordem in ordens %}
-            <tr>
-                <td>{{ordem.nome}}</td>
-                <td>{{ordem.tag}}</td>
-                <td>{{ordem.data_incial}}</td>
-                <td>{{ordem.data_final}}</td>
-                <td>{{ordem.descricao}}</td>
-                <td>
-                    <button class="button">Ver</button>
-                    <button>Deletar</button>
-                    <button>Editar</button>
-                </td>
-            </tr>
-            {%endfor%}
-            </tbody>
-            <tfoot class="table-dark text-center">
-            <tr>
-                <td>Nome</td>
-                <td>TAG</td>
-                <td>Data Inicial</td>
-                <td>Data Final</td>
-                <td>Descrição</td>
-                <td></td>
-            </tr>
-            </tfoot>
-
-        </table>
     </div>
+    <div id="detail" class="tab-pane fade">
+      <h3>Detalhes</h3>
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+    </div>
+  </div>
 </div>
 
+
+<script src="{% static 'js/example.js' %}"> </script>
+<script src="{% static 'js/bootstrap.js' %}"> </script>
 </body>
 </html>
-

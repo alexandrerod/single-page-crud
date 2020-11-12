@@ -1,0 +1,7 @@
+
+<form method="post" action="{% url 'example:update' form.instance.pk %}" class="js-update-form">
+    {%csrf_token%}
+    {% include 'example/form.html' %}
+    <button type="submit" class="btn btn-primary">Atualizar/Salvar</button>
+</form>
+

@@ -1,0 +1,7 @@
+
+<form method="post" action="{% url 'example:create' %}" class="js-create-form">
+    {%csrf_token%}
+    {% include 'example/form.html' %}
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+

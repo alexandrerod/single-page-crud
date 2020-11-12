@@ -8,6 +8,9 @@ flake8 = "*"
 
 [packages]
 django = "*"
+pillow = "*"
+django-crispy-forms = "*"
+django-widget-tweaks = "*"
 
 [requires]
 python_version = "3.9"

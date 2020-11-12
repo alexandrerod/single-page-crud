@@ -1,0 +1,22 @@
+<table class="table" id="table">
+    <thead>
+    <tr>
+        <th>Nome</th>
+        <th>TAG</th>
+        <th>nivel</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    {%for equipamento in equipamentos %}
+    <tr>
+        <td>{{equipamento.nome}}</td>
+        <td>{{equipamento.tag}}</td>
+        <td>{{equipamento.nivel}}</td>
+        <td>
+            <button class="btn btn-primary js-update-object" data-url="{% url 'example:update' equipamento.id %}" >Editar</button>
+        </td>
+    </tr>
+    {%endfor%}
+    </tbody>
+</table>
