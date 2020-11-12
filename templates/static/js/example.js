@@ -60,8 +60,40 @@ $(function () {
  $(".js-create-update").click(loadForm);
  $("#create-update").on("submit", ".js-create-form", saveForm );
 
-//atualiza
+//atualizar
+
+ $("#create-update").on("submit", ".js-update-form", saveForm );
+
 
 });
+
+//----------------Funcionando-------------
+function changeTab() {
+$(".js-update-object").click(function () {
+ $('#tab-create-update').trigger('click')
+
+  var btn = $(this);  // <-- HERE
+  $.ajax({
+    url: btn.attr("data-url"),  // <-- AND HERE
+    type: 'get',
+    dataType: 'json',
+    success: function (data) {
+        $("#create-update").html(data.html_form);
+      }
+  });
+
+});
+
+};
+
+  //carrega a tabela assim que a página entrar.
+        $.ajax({
+          url: '/list/',
+          type: 'get',
+          dataType: 'json',
+          success: function (data) {
+            $("#list").html(data.html_list);
+          }
+        });
 
 

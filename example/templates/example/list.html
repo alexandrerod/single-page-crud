@@ -14,7 +14,10 @@
         <td>{{equipamento.tag}}</td>
         <td>{{equipamento.nivel}}</td>
         <td>
-            <button class="btn btn-primary js-update-object" data-url="{% url 'example:update' equipamento.id %}" >Editar</button>
+            <button class="btn btn-primary js-update-object"
+                    data-url="{% url 'example:update' equipamento.id %}"
+                    onclick=changeTab()
+            >Editar</button>
         </td>
     </tr>
     {%endfor%}

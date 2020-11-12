@@ -6,4 +6,4 @@ from .models import Arvore
 class ArvoreModelForm(forms.ModelForm):
     class Meta:
         model = Arvore
-        fields = '__all__'
+        exclude = ('is_deleted',)
