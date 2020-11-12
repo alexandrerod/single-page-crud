@@ -1,5 +1,7 @@
-from .models import Arvore
 from django import forms
+
+from .models import Arvore
+
 
 class ArvoreModelForm(forms.ModelForm):
     class Meta:

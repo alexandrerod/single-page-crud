@@ -39,7 +39,6 @@ def save_form(request, form, template_name):
 
 
 def create_equipaments(request):
-
     if request.method == 'POST':
         form = ArvoreModelForm(request.POST)
     else:
@@ -53,7 +52,6 @@ def update_equipaments(request, id):
     if request.method == 'POST':
         form = ArvoreModelForm(request.POST, instance=queryset)
     else:
-        form=ArvoreModelForm(instance=queryset)
+        form = ArvoreModelForm(instance=queryset)
 
     return save_form(request, form, 'example/update.html')
-

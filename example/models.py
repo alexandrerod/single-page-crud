@@ -1,4 +1,5 @@
 import datetime
+
 from django.db import models
 
 
@@ -36,7 +37,7 @@ class Arvore(models.Model):
     fabricante = models.CharField(max_length=255, blank=True, null=True)
     modelo = models.CharField(max_length=255, blank=True, null=True)
     pai = models.CharField(verbose_name='TAG do elemento pai', max_length=255, blank=True, null=True)
-    localizacao = models.CharField(verbose_name='Localização', max_length=250,blank=True, null=True)
+    localizacao = models.CharField(verbose_name='Localização', max_length=250, blank=True, null=True)
     link_historico = models.CharField(max_length=255, blank=True, null=True)
     link_pm = models.CharField(max_length=255, blank=True, null=True)
     link_foto = models.ImageField(blank=True, null=True)
